@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :href="href" :type="submit" :class="['button', size, state, variation]">
+  <component :is="type" :href="href" :type="submit" :class="['wvc-button', size, state, variation]">
     <slot />
   </component>
 </template>
@@ -11,7 +11,7 @@
  * Primary style should be used only once per view for main call-to-action.
  */
 export default {
-  name: "Button",
+  name: "WvcButton",
   status: "prototype",
   release: "3.5.0",
   props: {
@@ -81,7 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.button {
+.wvc-button {
   @include reset;
   @include stack-space($space-m);
   @include inline-space($space-xs);
@@ -128,7 +128,7 @@ export default {
   }
 
   // For icons inside buttons
-  .icon {
+  .wvc-icon {
     float: right;
     margin: -#{$space-xs} -#{$space-xs} -#{$space-s} $space-xs/2;
     color: $color-bleu-de-france;
@@ -174,13 +174,13 @@ export default {
 
 <docs>
   ```jsx
-  <Button variation="primary" size="large">Primary Button</Button>
-  <Button variation="primary" size="medium">Medium</Button>
-  <Button variation="primary" size="small">Small</Button>
+  <WvcButton variation="primary" size="large">Primary Button</WvcButton>
+  <WvcButton variation="primary" size="medium">Medium</WvcButton>
+  <WvcButton variation="primary" size="small">Small</WvcButton>
   <br />
-  <Button>Default Button</Button>
-  <Button state="hover">:hover</Button>
-  <Button state="active">:active</Button>
-  <Button state="focus">:focus</Button>
+  <WvcButton>Default Button</WvcButton>
+  <WvcButton state="hover">:hover</WvcButton>
+  <WvcButton state="active">:active</WvcButton>
+  <WvcButton state="focus">:focus</WvcButton>
   ```
 </docs>

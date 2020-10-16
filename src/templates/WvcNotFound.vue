@@ -1,16 +1,16 @@
 <template>
-  <component :is="type" class="not-found">
-    <NavBar
-      active="NotFound"
+  <component :is="type" class="wvc-not-found">
+    <WvcNavBar
+      active="WvcNotFound"
       :navItems="[
-        {name: 'Template', component: 'Index', href: '/#/'},
+        {name: 'Template', component: 'WvcIndex', href: '/#/'},
         {name: 'Documentation', href: 'http://localhost:6060/'}
       ]"
     />
-    <Wrapper>
-      <Heading>404 Error</Heading>
-      <Paragraph>Couldn’t find a component that would match the URL you entered. Double check configuration in router/index.js.</Paragraph>
-    </Wrapper>
+    <WvcWrapper>
+      <WvcHeading>404 Error</WvcHeading>
+      <WvcParagraph>Couldn’t find a component that would match the URL you entered. Double check configuration in router/index.js.</WvcParagraph>
+    </WvcWrapper>
   </component>
 </template>
 
@@ -19,7 +19,7 @@
  * Shows how to layout and structure an error page.
  */
 export default {
-  name: "NotFound",
+  name: "WvcNotFound",
   metaInfo: {
     title: "Page Not Found | Vue Design System",
     htmlAttrs: {
@@ -46,7 +46,7 @@ $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
 $color-template-link: $color-bleu-de-france;
 
-.not-found {
+.wvc-not-found {
   @include reset;
   @include inset-space($space-m);
   min-height: $space-xxl * 4;
@@ -61,16 +61,16 @@ $color-template-link: $color-bleu-de-france;
   float: left;
   height: 100%;
   width: 100%;
-  .heading {
+  .wvc-heading {
     color: $color-template-text;
   }
-  .paragraph {
+  .wvc-paragraph {
     color: $color-template-text;
   }
-  .text-link {
+  .wvc-text-link {
     color: $color-template-link;
   }
-  .wrapper {
+  .wvc-wrapper {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     max-width: $space-xxl * 4.5;
@@ -84,6 +84,6 @@ $color-template-link: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <NotFound />
+  <WvcNotFound />
   ```
 </docs>

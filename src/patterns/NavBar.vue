@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" class="nav">
+  <component :is="type" class="wvc-nav">
     <a
       v-for="(item, index) in navItems"
       :key="index"
@@ -15,7 +15,7 @@
  * Used as main page navigation in templates.
  */
 export default {
-  name: "NavBar",
+  name: "WvcNavBar",
   status: "ready",
   release: "1.0.0",
   model: {
@@ -62,7 +62,7 @@ export default {
 $color-nav-link: $color-bleu-de-france;
 $color-nav-link-active: $color-bleu-de-france;
 
-.nav {
+.wvc-nav {
   @include stack-space($space-m);
   font-family: $font-text;
   font-size: $size-s;
@@ -93,7 +93,7 @@ $color-nav-link-active: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <NavBar active="Dashboard" :navItems="[
+  <WvcNavBar active="Dashboard" :navItems="[
     {name: 'Dashboard', component: 'Dashboard', href: '/example/'},
     {name: 'Posts', component: 'Posts', href: '/example/'},
     {name: 'Users', component: 'Users', href: '/example/'},

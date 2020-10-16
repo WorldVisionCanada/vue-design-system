@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :aria-label="ariaLabel" :class="['icon', size]" v-html="svg" />
+  <component :is="type" :aria-label="ariaLabel" :class="['wvc-icon', size]" v-html="svg" />
 </template>
 
 <script>
@@ -11,7 +11,7 @@ const req = require.context("@/assets/icons/", true, /^\.\/.*\.svg$/)
  * easily understand where they are in the product.
  */
 export default {
-  name: "Icon",
+  name: "WvcIcon",
   status: "review",
   release: "1.0.0",
   props: {
@@ -70,7 +70,7 @@ export default {
 
 // We don’t want to use scoped since these styles need to cascade down to SVGs.
 // We also want to be able to style .icon inside buttons etc.
-.icon {
+.wvc-icon {
   @include reset;
   &.large svg {
     width: $space-l;
@@ -89,9 +89,9 @@ export default {
 
 <docs>
   ```jsx
-  <Icon name="ready" aria-label="Component is ready" fill="#7cb518" />
-  <Icon name="review" fill="rgb(255,186,10)" />
-  <Icon name="deprecated" fill="rgb(235,59,36)" />
-  <Icon name="prototype" fill="rgb(37,138,239)" />
+  <WvcIcon name="ready" aria-label="Component is ready" fill="#7cb518" />
+  <WvcIcon name="review" fill="rgb(255,186,10)" />
+  <WvcIcon name="deprecated" fill="rgb(235,59,36)" />
+  <WvcIcon name="prototype" fill="rgb(37,138,239)" />
   ```
 </docs>

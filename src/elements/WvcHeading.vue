@@ -1,5 +1,5 @@
 <template>
-  <component :is="level" class="heading"> <slot /> </component>
+  <component :is="level" class="wvc-heading"> <slot /> </component>
 </template>
 
 <script>
@@ -9,7 +9,7 @@
  * Heading element provides an option to change the level of the heading.
  */
 export default {
-  name: "Heading",
+  name: "WvcHeading",
   status: "prototype",
   release: "1.0.0",
   props: {
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.heading {
+.wvc-heading {
   @include reset;
   @include stack-space($space-m);
   font-family: $font-heading;
@@ -72,9 +72,9 @@ h6 {
 
 <docs>
   ```jsx
-  <Heading>The quick brown fox</Heading>
-  <Heading level="h2">The quick brown fox</Heading>
-  <Heading level="h3">The quick brown fox</Heading>
-  <Heading level="h4">The quick brown fox</Heading>
+  <WvcHeading>The quick brown fox</WvcHeading>
+  <WvcHeading level="h2">The quick brown fox</WvcHeading>
+  <WvcHeading level="h3">The quick brown fox</WvcHeading>
+  <WvcHeading level="h4">The quick brown fox</WvcHeading>
   ```
 </docs>

@@ -1,57 +1,45 @@
 <template>
-  <component :is="wrapper" :class="['input', { 'input-expand': width === 'expand' }]">
+  <component :is="wrapper" :class="['textarea', { 'wvc-textarea-expand': width === 'expand' }]">
     <label :for="id" v-if="label">{{ label }}</label>
-    <input
+    <textarea
       :id="id"
       :disabled="disabled"
-      :type="type"
-      :value="value"
       :class="state"
       :placeholder="placeholder"
       @input="onInput($event.target.value)"
       @focus="onFocus($event.target.value)"
+      v-model="value"
     />
   </component>
 </template>
 
 <script>
 /**
- * Form Inputs are used to allow users to provide text input when the expected
- * input is short. Form Input has a range of options and supports several text
- * formats including numbers. For longer input, use the form `Textarea` element.
+ * Textareas are used to allow users to provide text input when the expected
+ * input is long. Textarea has a range of options. For shorter input,
+ * use the `Input` element.
  */
 export default {
-  name: "Input",
+  name: "WvcTextarea",
   status: "ready",
-  release: "1.0.0",
+  release: "3.5.0",
   props: {
     /**
-     * The type of the form input field.
-     * @values text, number, email
-     */
-    type: {
-      type: String,
-      default: "text",
-      validator: value => {
-        return value.match(/(text|number|email)/)
-      },
-    },
-    /**
-     * Text value of the form input field.
+     * Text value of the form textarea.
      */
     value: {
       type: String,
       default: null,
     },
     /**
-     * The placeholder value for the form input field.
+     * The placeholder value for the form textarea.
      */
     placeholder: {
       type: String,
       default: null,
     },
     /**
-     * The label of the form input field.
+     * The label of the form textarea.
      */
     label: {
       type: String,
@@ -69,14 +57,14 @@ export default {
       },
     },
     /**
-     * Unique identifier of the form input field.
+     * Unique identifier of the form textarea.
      */
     id: {
       type: String,
       default: null,
     },
     /**
-     * The width of the form input field.
+     * The width of the form textarea.
      * @values auto, expand
      */
     width: {
@@ -87,14 +75,14 @@ export default {
       },
     },
     /**
-     * Whether the form input field is disabled or not.
+     * Whether the form textarea is disabled or not.
      */
     disabled: {
       type: Boolean,
       default: false,
     },
     /**
-     * Manually trigger various states of the input.
+     * Manually trigger various states of the textarea.
      * @values hover, active, focus
      */
     state: {
@@ -120,7 +108,7 @@ export default {
 // Design Tokens with local scope
 $color-placeholder: tint($color-silver, 50%);
 
-.input {
+.wvc-textarea {
   @include stack-space($space-s);
   font-weight: $weight-normal;
   font-family: $font-text;
@@ -137,12 +125,14 @@ $color-placeholder: tint($color-silver, 50%);
     color: tint($color-rich-black, 20%);
     @include stack-space($space-xs);
   }
-  input {
+  textarea {
     @include reset;
     @include inset-squish-space($space-s);
     transition: all 0.2s ease;
     -webkit-appearance: none;
     appearance: none;
+    resize: vertical;
+    min-height: $space-xxl;
     font-size: $size-m;
     font-family: $font-text;
     background: $color-white;
@@ -177,7 +167,6 @@ $color-placeholder: tint($color-silver, 50%);
     }
     &[disabled] {
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       box-shadow: 0 0 0 1px tint($color-rich-black, 80%);
       background: lighten($color-placeholder, 42%);
       color: tint($color-placeholder, 20%);
@@ -190,9 +179,8 @@ $color-placeholder: tint($color-silver, 50%);
 
 <docs>
   ```jsx
-  <Input label="Default input" placeholder="Write your text" id="input-1" />
-  <Input label=":hover" state="hover" placeholder="Write your text" id="input-2" />
-  <Input label=":focus" state="focus" placeholder="Write your text" id="input-3" />
-  <Input label="[disabled]" disabled value="Write your text" id="input-4" />
+  <WvcTextarea label="Default textarea" placeholder="Write your text" id="textarea-1" />
+  <WvcTextarea label=":focus" state="focus" placeholder="Write your text" id="textarea-2" />
+  <WvcTextarea label="[disabled]" disabled value="Write your text" id="textarea-3" />
   ```
 </docs>

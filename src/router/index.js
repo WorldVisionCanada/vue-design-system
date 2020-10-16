@@ -1,7 +1,7 @@
 import Vue from "vue"
 import Router from "vue-router"
-import Index from "@/templates/Index"
-import NotFound from "@/templates/NotFound"
+import WvcIndex from "@/templates/WvcIndex"
+import WvcNotFound from "@/templates/WvcNotFound"
 
 Vue.use(Router)
 
@@ -10,12 +10,12 @@ export default new Router({
     {
       path: "/",
       name: "Index",
-      component: Index,
+      component: WvcIndex,
     },
     {
       path: "*",
       name: "NotFound",
-      component: NotFound,
+      component: WvcNotFound,
     },
   ],
 })

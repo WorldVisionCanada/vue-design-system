@@ -1,18 +1,18 @@
 <template>
-  <component :is="type" class="index">
-    <NavBar
-      active="Index"
+  <component :is="type" class="wvc-index">
+    <WvcNavBar
+      active="WvcIndex"
       :navItems="[
-        {name: 'Template', component: 'Index', href: '/#/'},
+        {name: 'Template', component: 'WvcIndex', href: '/#/'},
         {name: 'Documentation', href: 'http://localhost:6060/'}
       ]"
     />
-    <Wrapper>
-      <Heading>Vue Design System</Heading>
-      <Paragraph>
+    <WvcWrapper>
+      <WvcHeading>Vue Design System</WvcHeading>
+      <WvcParagraph>
         <a href="https://vueds.com">Vue Design System</a>is an open-source tool for building design systems with Vue.js. It provides you and your team a set of organized tools, patterns &amp; practices. It works as the foundation for your application development.
-      </Paragraph>
-    </Wrapper>
+      </WvcParagraph>
+    </WvcWrapper>
   </component>
 </template>
 
@@ -21,7 +21,7 @@
  * Shows how to layout and structure a home page.
  */
 export default {
-  name: "Index",
+  name: "WvcIndex",
   status: "deprecated",
   release: "1.0.0",
   metaInfo: {
@@ -50,7 +50,7 @@ $color-template-background-bottom: shade($color-template-background, 5%);
 $color-template-text: $color-white;
 $color-template-link: $color-bleu-de-france;
 
-.index {
+.wvc-index {
   @include reset;
   @include inset-space($space-m);
   min-height: $space-xxl * 4;
@@ -68,16 +68,16 @@ $color-template-link: $color-bleu-de-france;
   @media #{$media-query-l} {
     // This is how you’d use design tokens with media queries
   }
-  .heading {
+  .wvc-heading {
     color: $color-template-text;
   }
-  .paragraph {
+  .wvc-paragraph {
     color: $color-template-text;
   }
-  .text-link {
+  .wvc-text-link {
     color: $color-template-link;
   }
-  .wrapper {
+  .wvc-wrapper {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     max-width: $space-xxl * 4.5;
@@ -96,6 +96,6 @@ $color-template-link: $color-bleu-de-france;
 
 <docs>
   ```jsx
-  <Index />
+  <WvcIndex />
   ```
 </docs>

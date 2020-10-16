@@ -1,5 +1,5 @@
 <template>
-  <component :is="type" :class="['text-style', variation]"> <slot /> </component>
+  <component :is="type" :class="['wvc-text-style', variation]"> <slot /> </component>
 </template>
 
 <script>
@@ -9,7 +9,7 @@
  * styles only for aesthetic effect.
  */
 export default {
-  name: "TextStyle",
+  name: "WvcTextStyle",
   status: "ready",
   release: "1.0.0",
   props: {
@@ -43,7 +43,7 @@ export default {
 // Design Tokens with local scope
 $positive-text: #7cb518;
 
-.text-style {
+.wvc-text-style {
   @include reset;
   @include stack-space($space-s);
   color: $color-rich-black;
@@ -72,10 +72,10 @@ $positive-text: #7cb518;
 
 <docs>
   ```jsx
-  <TextStyle variation="default">Design isn’t just about the look and feel.</TextStyle>
+  <WvcTextStyle variation="default">Design isn’t just about the look and feel.</WvcTextStyle>
   <br />
-  <TextStyle variation="disabled">Design isn’t just about</TextStyle>
+  <WvcTextStyle variation="disabled">Design isn’t just about</WvcTextStyle>
   <br />
-  <TextStyle variation="strong">Design isn’t</TextStyle>
+  <WvcTextStyle variation="strong">Design isn’t</WvcTextStyle>
   ```
 </docs>
