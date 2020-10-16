@@ -140,7 +140,7 @@ const ComponentsListSectionRenderer = ({
       {// To be able to show all sections when in mobile mode,
       // we have to render them all the time.
       // We use hiding and showing instead of destroying.
-      content && <div className={open ? undefined : classes.hidden}>{content}</div>}
+        content && <div className={open ? undefined : classes.hidden}>{content}</div>}
     </li>
   )
 }
