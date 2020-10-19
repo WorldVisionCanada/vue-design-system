@@ -158,7 +158,8 @@
     "theo": "^8.0.0-beta.2",
     "vue-cli-plugin-styleguidist": "^4.33.1",
     "vue-jest": "^2.6.0",
-    "vue-template-compiler": "^2.5.17"
+    "vue-svg-loader": "^0.17.0-beta.2",
+    "vue-template-compiler": "^2.6.12"
   },
   "engines": {
     "node": ">= 8.6.0",
