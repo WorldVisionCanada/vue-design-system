@@ -6,8 +6,8 @@ module.exports = {
             @import "@/assets/tokens/tokens.scss";
             @import "@/assets/tokens/tokens.map.scss";
             @import "@/styles/styles.scss";
-          `,
-      },
-    },
-  },
+          `
+      }
+    }
+  }
 }

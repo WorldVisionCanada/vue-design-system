@@ -1,12 +1,17 @@
 <template>
-  <component :is="type" :class="['wvc-paragraph', variation]"> <slot /> </component>
+  <component
+    :is="type"
+    :class="['wvc-paragraph', variation]"
+  >
+    <slot />
+  </component>
 </template>
 
 <script>
 export default {
-  name: "WvcParagraph",
-  status: "prototype",
-  release: "3.5.0",
+  name: 'WvcParagraph',
+  status: 'prototype',
+  release: '3.5.0',
   props: {
     /**
      * The html element used for the text.
@@ -14,10 +19,10 @@ export default {
      */
     type: {
       type: String,
-      default: "p",
+      default: 'p',
       validator: value => {
         return value.match(/(p|span)/)
-      },
+      }
     },
     /**
      * Style variation to give additional meaning.
@@ -25,12 +30,12 @@ export default {
      */
     variation: {
       type: String,
-      default: "medium",
+      default: 'medium',
       validator: value => {
         return value.match(/(medium|intro|large|small)/)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>
 

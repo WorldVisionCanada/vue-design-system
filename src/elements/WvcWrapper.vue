@@ -1,6 +1,9 @@
 <template>
-  <component :is="type" class="wvc-wrapper">
-    <slot/>
+  <component
+    :is="type"
+    class="wvc-wrapper"
+  >
+    <slot />
   </component>
 </template>
 
@@ -10,18 +13,18 @@
  * associated actions. Wrapper doesn’t provide customizable options.
  */
 export default {
-  name: "WvcWrapper",
-  status: "review",
-  release: "1.0.0",
+  name: 'WvcWrapper',
+  status: 'review',
+  release: '1.0.0',
   props: {
     /**
      * The html element name used for the wrapper.
      */
     type: {
       type: String,
-      default: "div",
-    },
-  },
+      default: 'div'
+    }
+  }
 }
 </script>
 
@@ -39,7 +42,6 @@ export default {
   }
 }
 </style>
-
 
 <docs>
   ```jsx

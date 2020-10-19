@@ -1,5 +1,10 @@
 <template>
-  <component :is="type" :class="['wvc-text-style', variation]"> <slot /> </component>
+  <component
+    :is="type"
+    :class="['wvc-text-style', variation]"
+  >
+    <slot />
+  </component>
 </template>
 
 <script>
@@ -9,9 +14,9 @@
  * styles only for aesthetic effect.
  */
 export default {
-  name: "WvcTextStyle",
-  status: "ready",
-  release: "1.0.0",
+  name: 'WvcTextStyle',
+  status: 'ready',
+  release: '1.0.0',
   props: {
     /**
      * The html element used for the text style.
@@ -19,10 +24,10 @@ export default {
      */
     type: {
       type: String,
-      default: "span",
+      default: 'span',
       validator: value => {
         return value.match(/(span|em|i|strong)/)
-      },
+      }
     },
     /**
      * Style variation to give additional meaning.
@@ -30,12 +35,12 @@ export default {
      */
     variation: {
       type: String,
-      default: "default",
+      default: 'default',
       validator: value => {
         return value.match(/(default|disabled|strong|positive|negative)/)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>
 

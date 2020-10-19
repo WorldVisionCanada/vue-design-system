@@ -1,14 +1,20 @@
 <template>
-  <component :is="wrapper" :class="['textarea', { 'wvc-textarea-expand': width === 'expand' }]">
-    <label :for="id" v-if="label">{{ label }}</label>
+  <component
+    :is="wrapper"
+    :class="['textarea', { 'wvc-textarea-expand': width === 'expand' }]"
+  >
+    <label
+      v-if="label"
+      :for="id"
+    >{{ label }}</label>
     <textarea
       :id="id"
+      v-model="inputValue"
       :disabled="disabled"
       :class="state"
       :placeholder="placeholder"
       @input="onInput($event.target.value)"
       @focus="onFocus($event.target.value)"
-      v-model="value"
     />
   </component>
 </template>
@@ -20,30 +26,30 @@
  * use the `Input` element.
  */
 export default {
-  name: "WvcTextarea",
-  status: "ready",
-  release: "3.5.0",
+  name: 'WvcTextarea',
+  status: 'ready',
+  release: '3.5.0',
   props: {
     /**
      * Text value of the form textarea.
      */
     value: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * The placeholder value for the form textarea.
      */
     placeholder: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * The label of the form textarea.
      */
     label: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * The html element name used for the wrapper.
@@ -51,17 +57,17 @@ export default {
      */
     wrapper: {
       type: String,
-      default: "div",
+      default: 'div',
       validator: value => {
         return value.match(/(div|section)/)
-      },
+      }
     },
     /**
      * Unique identifier of the form textarea.
      */
     id: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * The width of the form textarea.
@@ -69,17 +75,17 @@ export default {
      */
     width: {
       type: String,
-      default: "expand",
+      default: 'expand',
       validator: value => {
         return value.match(/(auto|expand)/)
-      },
+      }
     },
     /**
      * Whether the form textarea is disabled or not.
      */
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     /**
      * Manually trigger various states of the textarea.
@@ -90,17 +96,25 @@ export default {
       default: null,
       validator: value => {
         return value.match(/(hover|active|focus)/)
-      },
-    },
+      }
+    }
+  },
+  data: function () {
+    return {
+      inputValue: ''
+    }
+  },
+  beforeMount () {
+    this.inputValue = this.value
   },
   methods: {
-    onInput(value) {
-      this.$emit("change", value)
+    onInput (value) {
+      this.$emit('change', value)
     },
-    onFocus(value) {
-      this.$emit("focus", value)
-    },
-  },
+    onFocus (value) {
+      this.$emit('focus', value)
+    }
+  }
 }
 </script>
 

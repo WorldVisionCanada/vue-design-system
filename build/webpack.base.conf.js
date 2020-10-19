@@ -4,6 +4,8 @@ const utils = require("./utils")
 const config = require("../config")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const { VueLoaderPlugin } = require("vue-loader")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
+const wwwPath = path.join(__dirname, 'www')
 
 function resolve(dir) {
   return path.join(__dirname, "..", dir)
@@ -118,7 +120,10 @@ module.exports = {
       },
     ],
   },
-  plugins: [new VueLoaderPlugin(), new MiniCssExtractPlugin("style.css")],
+  plugins: [new VueLoaderPlugin(), new MiniCssExtractPlugin("style.css"), new CopyWebpackPlugin([{
+    from: 'src/assets',
+    to: wwwPath + '/dist'
+  }])],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

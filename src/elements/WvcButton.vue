@@ -1,5 +1,10 @@
 <template>
-  <component :is="type" :href="href" :type="submit" :class="['wvc-button', size, state, variation]">
+  <component
+    :is="type"
+    :href="href"
+    :type="submit"
+    :class="['wvc-button', size, state, variation]"
+  >
     <slot />
   </component>
 </template>
@@ -11,9 +16,9 @@
  * Primary style should be used only once per view for main call-to-action.
  */
 export default {
-  name: "WvcButton",
-  status: "prototype",
-  release: "3.5.0",
+  name: 'WvcButton',
+  status: 'prototype',
+  release: '3.5.0',
   props: {
     /**
      * The html element used for the button.
@@ -21,10 +26,10 @@ export default {
      */
     type: {
       type: String,
-      default: "button",
+      default: 'button',
       validator: value => {
         return value.match(/(button|a)/)
-      },
+      }
     },
     /**
      * The size of the button. Defaults to medium.
@@ -32,17 +37,17 @@ export default {
      */
     size: {
       type: String,
-      default: "medium",
+      default: 'medium',
       validator: value => {
         return value.match(/(small|medium|large)/)
-      },
+      }
     },
     /**
      * When setting the button’s type to a link, use this option to give a href.
      */
     href: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * Set the button’s type to “submit”.
@@ -52,7 +57,7 @@ export default {
       default: null,
       validator: value => {
         return value.match(/(null|submit)/)
-      },
+      }
     },
     /**
      * Manually trigger various states of the button.
@@ -63,7 +68,7 @@ export default {
       default: null,
       validator: value => {
         return value.match(/(hover|active|focus)/)
-      },
+      }
     },
     /**
      * Style variation to give additional meaning.
@@ -74,9 +79,9 @@ export default {
       default: null,
       validator: value => {
         return value.match(/(primary|secondary)/)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>
 

@@ -1,6 +1,12 @@
 <template>
-  <component :is="wrapper" :class="['wvc-input', { 'input-expand': width === 'expand' }]">
-    <label :for="id" v-if="label">{{ label }}</label>
+  <component
+    :is="wrapper"
+    :class="['wvc-input', { 'input-expand': width === 'expand' }]"
+  >
+    <label
+      v-if="label"
+      :for="id"
+    >{{ label }}</label>
     <input
       :id="id"
       :disabled="disabled"
@@ -10,7 +16,7 @@
       :placeholder="placeholder"
       @input="onInput($event.target.value)"
       @focus="onFocus($event.target.value)"
-    />
+    >
   </component>
 </template>
 
@@ -21,9 +27,9 @@
  * formats including numbers. For longer input, use the form `Textarea` element.
  */
 export default {
-  name: "WvcInput",
-  status: "ready",
-  release: "1.0.0",
+  name: 'WvcInput',
+  status: 'ready',
+  release: '1.0.0',
   props: {
     /**
      * The type of the form input field.
@@ -31,31 +37,31 @@ export default {
      */
     type: {
       type: String,
-      default: "text",
+      default: 'text',
       validator: value => {
         return value.match(/(text|number|email)/)
-      },
+      }
     },
     /**
      * Text value of the form input field.
      */
     value: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * The placeholder value for the form input field.
      */
     placeholder: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * The label of the form input field.
      */
     label: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * The html element name used for the wrapper.
@@ -63,17 +69,17 @@ export default {
      */
     wrapper: {
       type: String,
-      default: "div",
+      default: 'div',
       validator: value => {
         return value.match(/(div|section)/)
-      },
+      }
     },
     /**
      * Unique identifier of the form input field.
      */
     id: {
       type: String,
-      default: null,
+      default: null
     },
     /**
      * The width of the form input field.
@@ -81,17 +87,17 @@ export default {
      */
     width: {
       type: String,
-      default: "expand",
+      default: 'expand',
       validator: value => {
         return value.match(/(auto|expand)/)
-      },
+      }
     },
     /**
      * Whether the form input field is disabled or not.
      */
     disabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     /**
      * Manually trigger various states of the input.
@@ -102,17 +108,17 @@ export default {
       default: null,
       validator: value => {
         return value.match(/(hover|active|focus)/)
-      },
-    },
+      }
+    }
   },
   methods: {
-    onInput(value) {
-      this.$emit("change", value)
+    onInput (value) {
+      this.$emit('change', value)
     },
-    onFocus(value) {
-      this.$emit("focus", value)
-    },
-  },
+    onFocus (value) {
+      this.$emit('focus', value)
+    }
+  }
 }
 </script>
 

@@ -1,11 +1,14 @@
 <template>
-  <component :is="type" class="wvc-not-found">
+  <component
+    :is="type"
+    class="wvc-not-found"
+  >
     <WvcNavBar
-      active="WvcNotFound"
-      :navItems="[
+      :nav-items="[
         {name: 'Template', component: 'WvcIndex', href: '/#/'},
         {name: 'Documentation', href: 'http://localhost:6060/'}
       ]"
+      active="WvcNotFound"
     />
     <WvcWrapper>
       <WvcHeading>404 Error</WvcHeading>
@@ -19,12 +22,12 @@
  * Shows how to layout and structure an error page.
  */
 export default {
-  name: "WvcNotFound",
+  name: 'WvcNotFound',
   metaInfo: {
-    title: "Page Not Found | Vue Design System",
+    title: 'Page Not Found | Vue Design System',
     htmlAttrs: {
-      lang: "en",
-    },
+      lang: 'en'
+    }
   },
   props: {
     /**
@@ -32,9 +35,9 @@ export default {
      */
     type: {
       type: String,
-      default: "div",
-    },
-  },
+      default: 'div'
+    }
+  }
 }
 </script>
 

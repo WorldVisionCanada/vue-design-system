@@ -1,11 +1,14 @@
 <template>
-  <component :is="type" class="wvc-index">
+  <component
+    :is="type"
+    class="wvc-index"
+  >
     <WvcNavBar
-      active="WvcIndex"
-      :navItems="[
+      :nav-items="[
         {name: 'Template', component: 'WvcIndex', href: '/#/'},
         {name: 'Documentation', href: 'http://localhost:6060/'}
       ]"
+      active="WvcIndex"
     />
     <WvcWrapper>
       <WvcHeading>Vue Design System</WvcHeading>
@@ -21,14 +24,14 @@
  * Shows how to layout and structure a home page.
  */
 export default {
-  name: "WvcIndex",
-  status: "deprecated",
-  release: "1.0.0",
+  name: 'WvcIndex',
+  status: 'deprecated',
+  release: '1.0.0',
   metaInfo: {
-    title: "Vue Design System",
+    title: 'Vue Design System',
     htmlAttrs: {
-      lang: "en",
-    },
+      lang: 'en'
+    }
   },
   props: {
     /**
@@ -36,9 +39,9 @@ export default {
      */
     type: {
       type: String,
-      default: "div",
-    },
-  },
+      default: 'div'
+    }
+  }
 }
 </script>
 

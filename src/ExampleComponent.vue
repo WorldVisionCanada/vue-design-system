@@ -1,6 +1,11 @@
 <template>
-  <component :is="type" :class="['example', variation]">
-    <div data-testid="Example-container"><slot /></div>
+  <component
+    :is="type"
+    :class="['example', variation]"
+  >
+    <div data-testid="Example-container">
+      <slot />
+    </div>
   </component>
 </template>
 
@@ -13,7 +18,7 @@ export default {
   /**
    * Component names should be short, pronounceable and Capitalized.
    */
-  name: "Example",
+  name: 'Example',
   /**
    * Components in the system are labelled with status labels that reflect their
    * state of completion. See example below. All available statuses are:
@@ -25,12 +30,12 @@ export default {
    * under-review   Yellow     Component is currently being reviewed
    * ready          Green      Ready to be used
    */
-  status: "prototype",
+  status: 'prototype',
   /**
    * Release indicates when this component was added into the system.
    * (in which design system version)
    */
-  release: "1.0.0",
+  release: '1.0.0',
   /**
    * Prop definitions should be as detailed as possible, specifying at least
    * type(s). See examples below:
@@ -41,7 +46,7 @@ export default {
      */
     type: {
       type: String,
-      default: "div",
+      default: 'div'
     },
     /**
      * Style variation to give additional meaning.
@@ -49,12 +54,12 @@ export default {
      */
     variation: {
       type: String,
-      default: "default",
+      default: 'default',
       validator: value => {
         return value.match(/(default|strong|positive|negative)/)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>
 

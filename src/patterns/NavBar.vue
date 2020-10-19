@@ -1,12 +1,16 @@
 <template>
-  <component :is="type" class="wvc-nav">
+  <component
+    :is="type"
+    class="wvc-nav"
+  >
     <a
       v-for="(item, index) in navItems"
       :key="index"
       :href="item.href"
       :class="{active: localActive === item.component}"
-      v-html="item.name"
-    />
+    >
+      {{ item.name }}
+    </a>
   </component>
 </template>
 
@@ -15,11 +19,11 @@
  * Used as main page navigation in templates.
  */
 export default {
-  name: "WvcNavBar",
-  status: "ready",
-  release: "1.0.0",
+  name: 'WvcNavBar',
+  status: 'ready',
+  release: '1.0.0',
   model: {
-    prop: "active",
+    prop: 'active'
   },
   props: {
     /**
@@ -27,33 +31,33 @@ export default {
      */
     type: {
       type: String,
-      default: "nav",
+      default: 'nav'
     },
     /**
      * State which tab is active when initiated (using name of the component).
      */
     active: {
       required: true,
-      type: String,
+      type: String
     },
     /**
      * Menu items to be displayed on the nav bar.
      */
     navItems: {
       required: true,
-      type: Array,
-    },
+      type: Array
+    }
   },
   computed: {
     localActive: {
-      get() {
+      get () {
         return this.active
       },
-      set(val) {
-        this.$emit("input", val)
-      },
-    },
-  },
+      set (val) {
+        this.$emit('input', val)
+      }
+    }
+  }
 }
 </script>
 
