@@ -4,12 +4,17 @@
     :aria-label="ariaLabel"
     :class="['wvc-icon', size]"
   >
-    {{ svg }}
+    <component
+      :is="iconName"
+      :class="`${name}-icon`"
+      :style="{ fill: fill }"
+    />
   </component>
 </template>
 
 <script>
-const req = require.context('@/assets/icons/', true, /^\.\/.*\.svg$/)
+// import file containing all icons as components
+import * as components from '@/assets/icons/index'
 
 /**
  * Icons are used to visually communicate core parts of the product and
@@ -20,6 +25,9 @@ export default {
   name: 'WvcIcon',
   status: 'review',
   release: '1.0.0',
+  components: {
+    ...components
+  },
   props: {
     /**
      * The name of the icon to display.
@@ -27,7 +35,7 @@ export default {
     name: {
       type: String,
       required: true,
-      default: 'settings'
+      default: 'ready'
     },
     /**
      * The fill color of the SVG icon.
@@ -62,9 +70,9 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      svg: req('./' + this.name + '.svg').replace(/^<svg /, `<svg style="fill: ${this.fill}" `)
+  computed: {
+    iconName () {
+      return this.name + 'Icon'
     }
   }
 }
